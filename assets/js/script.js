@@ -60,8 +60,8 @@ var GenerateUv = function(weather){
 
 var Search = function(event){
     event.preventDefault();
-
-    search = searchHistory[searchHistory.length] = form.children("#search").val()
+    search = form.children("#search").val();
+     searchHistory[searchHistory.length] = search;
     currentDay.children()[0].textContent=search;
 
     

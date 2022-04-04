@@ -1,7 +1,17 @@
-.test {
+
+header{
+    background-color: #212658;
+}
+
+.border-box {
     border:solid ;
+    border-color: black;
 }
 .data{
 
     width: 100%;
+}
+.blue-background{
+    background-color: #212658;
+    color: white;
 }
