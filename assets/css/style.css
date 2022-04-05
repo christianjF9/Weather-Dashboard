@@ -1,6 +1,17 @@
 
 header{
     background-color: #212658;
+    text-align: center;
+}
+
+#history{
+    border-top: solid lightgray;
+}
+
+button {
+    width: 100%;
+    border: none;
+    margin: 5px;
 }
 
 .border-box {

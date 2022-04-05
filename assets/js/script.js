@@ -5,7 +5,6 @@ var currentDay = $("#current-day");
 var form = $("form");
 var historyEl = $("#history");
 
-
 var GenerateWeatherInfo = function(response){
     var api = "https://api.openweathermap.org/data/2.5/onecall?lat="+response[0].lat+"&lon="+response[0].lon+"&appid=ec93ec889e22ec6a9e1c57a53cc4c613"
     var weather = fetch (api).then(function(response){
@@ -58,25 +57,42 @@ var GenerateUv = function(weather){
         uvEl.css('background-color','green');
 }
 
-var Search = function(event){
-    event.preventDefault();
-    search = form.children("#search").val();
-     searchHistory[searchHistory.length] = search;
+var Search = function(search){
     currentDay.children()[0].textContent=search;
-
-    
-    localStorage.setItem(searchHistory,JSON.stringify(searchHistory));
-    var entry = $("<button>").text(search);
-    historyEl.prepend(entry);
-
     var geoApi = "http://api.openweathermap.org/geo/1.0/direct?q="+search+"&limit=1&appid=ec93ec889e22ec6a9e1c57a53cc4c613";
     var cordinates = fetch(geoApi).then(function(response){
         response.json().then(GenerateWeatherInfo);
     });
 }
 
+var LoadHistory = function(){
+    var history = localStorage.getItem("search history");
+    console.log(history);
+    history = JSON.parse(history);
+    history.forEach(element => {
+        CreateHistoryEntry(element);
+    });
+}
 
-form.on("submit",Search);
+var CreateHistoryEntry = function(entry){
+    var entry = $("<button>").text(search);
+    entry.on("click",function(){
+        Search(entry.text());
+    });
+    historyEl.prepend(entry);
+}
+
+form.on("submit",function(event){
+    event.preventDefault();
+    search = form.children("#search").val();
+    CreateHistoryEntry(search);
+    searchHistory[searchHistory.length] = search;   
+    localStorage.setItem("search history",searchHistory);
+
+    Search(search);
+});
+
+LoadHistory();
 
 //FillWeatherData(currentDay, weather.current);
 

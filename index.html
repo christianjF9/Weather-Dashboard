@@ -5,7 +5,7 @@
     <link
     rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  />
+    />
   <link
   rel="stylesheet"
   href="assets/css/style.css"
@@ -13,18 +13,18 @@
     <title>Weather Dashboard</title>
   </head>
   <body>
-      <header class="blue-background">Weather Dashboard</header>
+      <header class="blue-background"><h1>Weather Dashboard<h1></header>
       <main class="row">
         <div class = "col-2">
           <form>
-            <label for="search">search</label>
+            <h3><label for="search">search for a city</label></h3>
             <input type="text" placeholder="search for a city" name="search" id="search"/>
             <button type="submit">Search</button>
           </form>
           <div id = "history">
           </div>
           </div>
-        <div class="border-box col">
+        <div class=" col">
           <div id = "current-day" class="row border-box day">
             <div ></div>
             <div class="data">111</div>
@@ -38,7 +38,7 @@
           <div class="row">
             5-day forcast:
           </div>
-          <div class="row">
+          <div class="row gx-5">
             <div class="col blue-background day">
               <div class="data"></div>
               <img class = "cloud" src="http://openweathermap.org/img/wn/10d@2x.png" alt=""/>
@@ -78,7 +78,6 @@
         </div>
       </main>
       <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
       <script src="./assets/js/script.js"></script>
   </body>
 </html>
