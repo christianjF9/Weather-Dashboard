@@ -59,7 +59,7 @@ var GenerateUv = function(weather){
 
 var Search = function(search){
     currentDay.children()[0].textContent=search;
-    var geoApi = "http://api.openweathermap.org/geo/1.0/direct?q="+search+"&limit=1&appid=ec93ec889e22ec6a9e1c57a53cc4c613";
+    var geoApi = "https://api.openweathermap.org/geo/1.0/direct?q="+search+"&limit=1&appid=ec93ec889e22ec6a9e1c57a53cc4c613";
     var cordinates = fetch(geoApi).then(function(response){
         response.json().then(GenerateWeatherInfo);
     });
